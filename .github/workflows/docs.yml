@@ -66,8 +66,9 @@ jobs:
     name: deploy
     needs: builddocs
     # if: github.ref == 'refs/heads/main'
-    # if: github.event_name == 'release'
-    if: ${{ github.event_name == 'release' && startsWith(github.event.ref, 'refs/tags') }}
+    if: github.event_name == 'release'
+    # Note: the below does NOT work, and breaks things.
+    # if: ${{ github.event_name == 'release' && startsWith(github.event.ref, 'refs/tags') }}
     runs-on: ubuntu-20.04
     defaults:
       run:
