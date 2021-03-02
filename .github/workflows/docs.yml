@@ -54,7 +54,8 @@ jobs:
           mv _build/html ../docs_output
 
       - name: Upload artifacts
-        if: github.ref == 'refs/heads/main'
+        # if: github.ref == 'refs/heads/main'
+        if: github.event_name == 'release'
         uses: actions/upload-artifact@v1
         with:
           name: docs_output
