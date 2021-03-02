@@ -61,7 +61,8 @@ jobs:
   deploy:
     name: deploy
     needs: builddocs
-    if: github.ref == 'refs/heads/main'
+    # if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'release'
     runs-on: ubuntu-20.04
     defaults:
       run:
